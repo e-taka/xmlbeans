@@ -12,8 +12,10 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 1.7
-      - name: Build
-        run: ant -noinput compile
-      - name: Test
-        run: ant -noinput test
+      - name: builds, but does not run, the xbean drt
+        run: ant -noinput testbuild
+      - name: runs the xbean tests
+        run: ant -noinput checkintest
+      - name: builds our implementation jar (xbean.jar)
+        run: ant -noinput deploy
 
